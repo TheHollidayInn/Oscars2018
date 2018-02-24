@@ -724,7 +724,9 @@ export default {
         questionUpdate[question.key][prevAnswer] = this.questionStats[question.key][prevAnswer] - 1
       }
 
-      this.statsdb.update(questionUpdate)
+      getApp().database().ref().child('voteStats2018/' + question.key).update(questionUpdate[question.key]);
+
+      // this.statsdb.update(questionUpdate)
     }
   }
 }
